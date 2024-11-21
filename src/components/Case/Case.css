@@ -1,0 +1,14 @@
+.Case {
+    display: grid;
+    width: 15vw;
+    gap: 14px;
+    /* line-height: 64px; */
+}
+
+.Case .Textinput {
+    margin-bottom: 14px;
+}
+
+.Case .Textinput:nth-child(3) {
+    margin-bottom: 24px;
+}

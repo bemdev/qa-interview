@@ -1,0 +1,43 @@
+body {
+    overflow: hidden;
+}
+
+.App_view_case img {
+    height: 75vh;
+}
+
+.App_view_case .App__content {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    justify-content: space-around;
+    min-height: 95vh;
+}
+
+.App_view_case .App__controls {
+    position: relative;
+    right: 14px;
+    bottom: 14px;
+    min-height: 5vh;
+    display: flex;
+    justify-content: right;
+    padding-right: 10px;
+}
+
+.App_view_case .App__controls .Button2 {
+    height: 100%;
+}
+
+.App_view_case .MessageBox {
+    position: absolute;
+    top: 150%;
+    transform: translate(-50%, -50%);
+    transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.App_view_case .MessageBox.active {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

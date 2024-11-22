@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-from datetime import datetime, UTC
+from datetime import datetime
 from libs.render import render
 from api.router import user_router, assets_router
 
@@ -40,7 +40,7 @@ async def login_page(request: Request):
     global isActiveApp
 
     if password['password'] in passwords:
-        isActiveApp = datetime.now(UTC)
+        isActiveApp = datetime.now()
         return Response(status_code=200)
     isActiveApp = False
     return Response(status_code=404)

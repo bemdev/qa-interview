@@ -26,10 +26,9 @@ const Header = ({ timerDate, countBugs }) => {
     const refPopup = React.useRef(null)
 
     const calculateExpires = () => {
-        let now = Date.now()
-        let expiresDate = new Date(timerDate).getTime()
-        let expires = (now - expiresDate) / 60000
-        return 60 - expires.toFixed()
+        let now = new Date()
+        let moskowTime = now.getUTCHours() + 3
+        return moskowTime == 18
     }
 
     const [timeover, setTimeOver] = React.useState(calculateExpires())
@@ -37,7 +36,7 @@ const Header = ({ timerDate, countBugs }) => {
     React.useEffect(() => {
         let interval = setInterval(() => {
             const exp = calculateExpires()
-            if (exp <= 0) window.location.href = '/logout'
+            if (exp) window.location.href = '/logout'
             setTimeOver(exp)
         }, 1000)
         return () => {
@@ -49,7 +48,7 @@ const Header = ({ timerDate, countBugs }) => {
         <div className={`${blockName}`} ref={refScope}>
             <Text color="inverse" typography='headline-l' weight='bold'>QA интервью</Text>
             <div style={{ display: 'flex' }}>
-                <Text color="inverse" typography='body-s' weight='bold'>Сессия закроется через: {timeover} мин.</Text>
+                {/* <Text color="inverse" typography='body-s' weight='bold'>Сессия закроется через: {timeover} мин.</Text> */}
                 <Spacer horizontal={22} />
                 <div ref={refPopup}>
                     <Text onMouseLeave={() => setVisiblePopup(false)} onMouseEnter={() => setVisiblePopup(true)} color="inverse" typography='body-s' weight='bold'>Найдено багов: {countBugs.length} из 8</Text>

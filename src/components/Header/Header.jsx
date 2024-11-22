@@ -52,7 +52,7 @@ const Header = ({ timerDate, countBugs }) => {
                 <Text color="inverse" typography='body-s' weight='bold'>Сессия закроется через: {timeover} мин.</Text>
                 <Spacer horizontal={22} />
                 <div ref={refPopup}>
-                    <Text onMouseLeave={() => setVisiblePopup(false)} onMouseEnter={() => setVisiblePopup(true)} color="inverse" typography='body-s' weight='bold'>Найдено багов: {countBugs.length} из 7</Text>
+                    <Text onMouseLeave={() => setVisiblePopup(false)} onMouseEnter={() => setVisiblePopup(true)} color="inverse" typography='body-s' weight='bold'>Найдено багов: {countBugs.length} из 8</Text>
                     {countBugs.length > 0 && <Popup
                         style={{}}
                         target='anchor'

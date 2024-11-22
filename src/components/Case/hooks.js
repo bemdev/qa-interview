@@ -46,7 +46,11 @@ export const useCase = (handleIncreaseCountBugs) => {
             return handleIncreaseCountBugs('Получение данных из бд')
         } else {
             if (a > b) result = (a / b)
-            if (a <= b) result = (a * b)
+            if (a < b) result = (a * b)
+            if (a == b) {
+                result = (a * b)
+                handleIncreaseCountBugs('Не соот. треб.')
+            }
             if (result && result != 'Infinity') {
                 setValues({ ...values, c: fixedNumberWithBug(result) })
             } else {

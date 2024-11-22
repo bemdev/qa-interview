@@ -22,3 +22,8 @@
     color: var(--menu-view-default-fill-color-base);
     border-top: 3px var(--link-view-default-outline-color) solid;
 }
+
+.Header .Popup2 {
+    width: 12.5vw;
+    padding: 4px 8px;
+}

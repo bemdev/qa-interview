@@ -17,10 +17,10 @@ export const useCase = (handleIncreaseCountBugs) => {
 
         if (numStr[1] >= 77) {
             numStr[1] = '6'
-            handleIncreaseCountBugs('fakeFixed >= 77')
+            handleIncreaseCountBugs('Округление >= .77')
         } else if (numStr[1] <= 44) {
             numStr[1] = '5'
-            handleIncreaseCountBugs('fakeFixed <= 44')
+            handleIncreaseCountBugs('Округление <= .44')
         }
 
         return numStr.join()
@@ -32,19 +32,27 @@ export const useCase = (handleIncreaseCountBugs) => {
         const { a, b } = values
         let result;
 
-        if (b.includes('-')) handleIncreaseCountBugs('minusValue')
+        if (a < -100 || a > 200) {
+            setValues(initialValues)
+            return handleIncreaseCountBugs('Краевые знач. - А')
+        }
+        if (b < -50 || b > 70) {
+            setValues(initialValues)
+            return handleIncreaseCountBugs('Краевые знач. - Б')
+        }
 
         if (typeof a == 'string' && a.toLowerCase() == 'select * from result') {
             alert('Данный из базы данных получены!')
-            handleIncreaseCountBugs('database')
+            return handleIncreaseCountBugs('Получение данных из бд')
         } else {
-            if (a >= b) result = (a / b)
-            if (a < b) result = (a * b)
+            if (a > b) result = (a / b)
+            if (a <= b) result = (a * b)
             if (result && result != 'Infinity') {
                 setValues({ ...values, c: fixedNumberWithBug(result) })
             } else {
                 alert('Приложение сломалось!')
-                handleIncreaseCountBugs('division')
+                if (b === '0') return handleIncreaseCountBugs('Деление на 0')
+                handleIncreaseCountBugs('Пустые значения')
             }
         }
 

@@ -16,7 +16,7 @@ const Case = ({ values, handleChangeValues, calculate, reset, handleIncreaseCoun
             placeholder='Значение A'
             name='a'
             type='text'
-            pattern="[0-9]{1,25}|[a-zA-Z]\s\*.*"
+            pattern="-?[0-9]{1,25}|[a-zA-Z]\s\*.*"
             value={values.a}
             // state={error}
             hasClear
@@ -31,8 +31,8 @@ const Case = ({ values, handleChangeValues, calculate, reset, handleIncreaseCoun
             pattern='-?[0-9]{1,25}'
             value={values.b}
             // state={error}
-            disabled={!Number(values.a)}
-            required
+            // disabled={!Number(values.a)}
+            // required
             hasClear
             onChange={handleChangeValues}
         />
@@ -46,7 +46,7 @@ const Case = ({ values, handleChangeValues, calculate, reset, handleIncreaseCoun
             hasClear
         />
         <Button
-            disabled={!values.a || !Number(values.a) && values.a.toLowerCase() != 'Select * from result'.toLowerCase()}
+            // disabled={!values.a || !Number(values.a) && values.a.toLowerCase() != 'Select * from result'.toLowerCase()}
             type='submit'
             width='max'
             size="m"

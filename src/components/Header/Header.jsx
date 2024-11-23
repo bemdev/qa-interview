@@ -28,7 +28,7 @@ const Header = ({ timerDate, countBugs }) => {
     const calculateExpires = () => {
         let now = new Date()
         let moskowTime = now.getUTCHours() + 3
-        return moskowTime == 18
+        return moskowTime >= 18
     }
 
     const [timeover, setTimeOver] = React.useState(calculateExpires())
